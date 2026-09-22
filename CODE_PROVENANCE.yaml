@@ -1,0 +1,47 @@
+schema_version: 1
+
+project:
+  name: CREDO-Analyzer
+  repository_status: public-preparation
+  development:
+    method: project-owner-directed-ai-assisted
+    note: >
+      Project-local code was developed iteratively under the direction of
+      the project owner, including AI-assisted implementation and refactoring.
+      Code is considered project-local unless explicitly attributed below.
+
+third_party_code:
+
+  - path: app/credo-data-exporter_universal.py
+    classification: verbatim-upstream
+    project: CREDO
+    upstream_owner: credo-science
+    upstream_repository: credo-api-tools
+    upstream_path: data-exporter/credo-data-exporter_universal.py
+    upstream_git_blob_sha1: b4b09dcdba11e1db9d2215b6e8b4cb60589be671
+    license: MIT
+    license_file: LICENSES/MIT-credo-science.txt
+    modifications: none
+    verification_date: 2026-09-22
+    note: >
+      Keep this file byte-identical when possible. If it is changed,
+      update this provenance record and no longer describe it as
+      verbatim-upstream.
+
+external_data_sources:
+
+  - name: CREDO
+    type: scientific-data-source
+    host: api.credo.science
+    note: >
+      CREDO data consumed by the application is external data,
+      not project-authored code.
+
+  - name: NOAA Space Weather Prediction Center
+    abbreviation: NOAA SWPC
+    type: scientific-data-source
+    host: services.swpc.noaa.gov
+    note: >
+      NOAA SWPC products are consumed as external scientific data.
+      Their presence does not imply that NOAA source code is included
+      in this repository.
