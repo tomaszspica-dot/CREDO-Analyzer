@@ -60,6 +60,7 @@ for REQUIRED in \
     README.md \
     AGENTS.md \
     llms.txt \
+    INSPIRATION.md \
     .env.example \
     install.sh \
     CODE_PROVENANCE.yaml \

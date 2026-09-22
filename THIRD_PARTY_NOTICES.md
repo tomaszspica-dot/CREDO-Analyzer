@@ -37,8 +37,28 @@ was byte-identical to the verified upstream Git blob.
 CREDO Analyzer consumes data from external scientific services,
 including CREDO and NOAA Space Weather Prediction Center.
 
-These services are data sources. Their use does not mean that their
-application source code is incorporated into CREDO Analyzer.
+These services are data sources.
+
+Their use does not mean that their application source code is
+incorporated into CREDO Analyzer.
+
+## Conceptual inspiration — not incorporated source code
+
+Development was informed by experience with several open scientific and
+citizen-science projects, including:
+
+- `projecthorus/sondehub-tracker`
+- `SatNOGS / Libre Space Foundation`
+- `tinygs/tinyGS`
+
+These entries identify conceptual, workflow or presentation inspiration.
+
+They do not indicate copied or incorporated source code.
+
+For the detailed distinction between source provenance, external data
+and conceptual inspiration see:
+
+`INSPIRATION.md`
 
 For machine-readable provenance see:
 

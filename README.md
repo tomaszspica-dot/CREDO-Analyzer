@@ -179,6 +179,7 @@ A fresh installation creates its own runtime environment.
     requirements.txt
     AGENTS.md
     llms.txt
+    INSPIRATION.md
     CODE_PROVENANCE.yaml
     THIRD_PARTY_NOTICES.md
     CITATION.cff
@@ -210,6 +211,31 @@ The exact upstream file is verified automatically by:
 
 External APIs and scientific datasets are integrations/data sources.
 They are not automatically classified as copied source code.
+
+## Inspiration and related projects
+
+CREDO Analyzer is independently developed, but its design and workflow
+were informed by experience with open scientific and citizen-science
+projects.
+
+Conceptual references include:
+
+- `projecthorus/sondehub-tracker` — scientific monitoring dashboards,
+  operator status and telemetry presentation
+- `SatNOGS / Libre Space Foundation` — distributed citizen-science
+  stations, observation history and local-versus-network state
+- `tinygs/tinyGS` — compact station status, event-oriented monitoring
+  and community-operated sensor networks
+
+These references describe conceptual inspiration only.
+
+They do **not** mean that source code from those projects was
+incorporated into CREDO Analyzer.
+
+Exact third-party source-code provenance is recorded separately in
+`CODE_PROVENANCE.yaml`.
+
+See `INSPIRATION.md` for the detailed classification.
 
 ## GitHub topics
 

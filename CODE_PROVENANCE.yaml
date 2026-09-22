@@ -2,7 +2,7 @@ schema_version: 1
 
 project:
   name: CREDO-Analyzer
-  repository_status: public-preparation
+  repository_status: public
   development:
     method: project-owner-directed-ai-assisted
     note: >
@@ -45,3 +45,34 @@ external_data_sources:
       NOAA SWPC products are consumed as external scientific data.
       Their presence does not imply that NOAA source code is included
       in this repository.
+
+conceptual_inspiration:
+
+  - name: SondeHub
+    reference: projecthorus/sondehub-tracker
+    classification: conceptual-inspiration
+    source_code_incorporated: false
+    note: >
+      Operator-facing monitoring dashboards, status presentation,
+      telemetry workflows and public-project documentation influenced
+      design thinking. No SondeHub source code is recorded as
+      incorporated into CREDO Analyzer.
+
+  - name: SatNOGS
+    reference: SatNOGS / Libre Space Foundation
+    classification: conceptual-inspiration
+    source_code_incorporated: false
+    note: >
+      Distributed citizen-science station concepts, local-versus-network
+      state, observation history and operational monitoring influenced
+      design thinking. No SatNOGS source code is recorded as incorporated
+      into CREDO Analyzer.
+
+  - name: TinyGS
+    reference: tinygs/tinyGS
+    classification: conceptual-inspiration
+    source_code_incorporated: false
+    note: >
+      Community ground-station concepts, compact device status and
+      event-oriented network monitoring influenced design thinking.
+      No TinyGS source code is recorded as incorporated into CREDO Analyzer.

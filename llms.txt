@@ -50,6 +50,10 @@ Editing and provenance rules for AI coding agents.
 CODE_PROVENANCE.yaml
 Machine-readable code provenance.
 
+INSPIRATION.md
+Conceptual inspiration and related projects. These references are
+separate from incorporated third-party source-code provenance.
+
 THIRD_PARTY_NOTICES.md
 Third-party notices.
 

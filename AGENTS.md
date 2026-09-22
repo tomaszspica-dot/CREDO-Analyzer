@@ -10,8 +10,9 @@ Before modifying the project read:
 1. `README.md`
 2. `llms.txt`
 3. `CODE_PROVENANCE.yaml`
-4. `THIRD_PARTY_NOTICES.md`
-5. `.gitignore`
+4. `INSPIRATION.md`
+5. `THIRD_PARTY_NOTICES.md`
+6. `.gitignore`
 
 ## Primary application
 
@@ -79,6 +80,17 @@ data sources.
 
 Do not classify API usage as copied source code unless source code was
 actually incorporated.
+
+## Conceptual inspiration
+
+`INSPIRATION.md` records projects that influenced design concepts,
+workflow or presentation.
+
+Conceptual inspiration is not source-code provenance.
+
+Do not claim that code from SondeHub, SatNOGS, TinyGS or another
+inspiration project is incorporated unless a specific source is
+explicitly recorded in `CODE_PROVENANCE.yaml`.
 
 ## Private/runtime data
 
