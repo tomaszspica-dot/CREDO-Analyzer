@@ -1,0 +1,108 @@
+# CREDO Analyzer
+
+CREDO Analyzer is a local web dashboard and research workspace for
+detection data associated with the CREDO ecosystem.
+
+## Primary application files
+
+app/server.py
+Main HTTP backend and API.
+
+app/index.html
+Main browser interface.
+
+app/app.js
+Main frontend runtime and shared polling.
+
+app/features.js
+Extended analysis and research interface.
+
+app/timelapse.js
+Detection timelapse functionality.
+
+app/style.css
+Main stylesheet.
+
+app/network_import.py
+Data/network import support.
+
+app/legacy.py
+Legacy/support dashboard functionality.
+
+## Third-party upstream source
+
+app/credo-data-exporter_universal.py
+
+This file is a byte-identical upstream file from:
+
+credo-science/credo-api-tools
+
+Read CODE_PROVENANCE.yaml before modifying it.
+
+## Documentation and policy
+
+README.md
+Human-facing installation and usage documentation.
+
+AGENTS.md
+Editing and provenance rules for AI coding agents.
+
+CODE_PROVENANCE.yaml
+Machine-readable code provenance.
+
+THIRD_PARTY_NOTICES.md
+Third-party notices.
+
+CITATION.cff
+Citation metadata.
+
+LICENSE
+MIT license for project-local code.
+
+## Installation and validation
+
+.env.example
+Safe public configuration template.
+
+install.sh --check
+Read-only installation/readiness check.
+
+install.sh
+Prepares a local installation.
+
+tools/verify-provenance.sh
+Checks the exact upstream CREDO exporter.
+
+tools/public-preflight.sh
+Checks the public repository candidate tree.
+
+## Important rules
+
+Do not commit runtime data, databases, detection images, logs,
+credentials, .env files, caches, backups or virtual environments.
+
+Do not silently rewrite the upstream CREDO exporter.
+
+Distinguish external APIs and scientific datasets from copied source
+code.
+
+Keep 127.0.0.1 as the default bind address.
+
+Prefer small behaviour-preserving changes.
+
+Before committing run:
+
+    ./install.sh --check
+    ./tools/public-preflight.sh
+    git diff --check
+
+Known audited production environment:
+
+macOS 12.7.6
+Intel x86_64
+Python 3.14
+
+GitHub CI profile:
+
+Python 3.12
+Node.js 22

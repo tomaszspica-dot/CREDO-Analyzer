@@ -3,6 +3,14 @@ set -u
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+ENV_FILE="${CREDO_ENV_FILE:-$ROOT/.env}"
+
+if [ -f "$ENV_FILE" ]; then
+    set -a
+    . "$ENV_FILE"
+    set +a
+fi
+
 RUN="${CREDO_RUN_DIR:-$ROOT/run}"
 LOGS="${CREDO_LOG_DIR:-$ROOT/logs}"
 

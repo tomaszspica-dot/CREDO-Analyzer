@@ -2,46 +2,46 @@
 
 ## Purpose
 
-This file is the primary machine-readable/human-readable entry point for
-AI coding agents working with CREDO Analyzer.
+This is the primary editing-policy document for AI coding agents and
+automated development tools working with CREDO Analyzer.
 
-Before modifying the project, read:
+Before modifying the project read:
 
 1. `README.md`
-2. `CODE_PROVENANCE.yaml`
-3. `THIRD_PARTY_NOTICES.md`
-4. `.gitignore`
+2. `llms.txt`
+3. `CODE_PROVENANCE.yaml`
+4. `THIRD_PARTY_NOTICES.md`
+5. `.gitignore`
 
-## Project layout
+## Primary application
 
-Primary backend:
+Backend:
 
 `app/server.py`
 
-Primary frontend:
+Frontend:
 
+`app/index.html`
 `app/app.js`
 `app/features.js`
 `app/timelapse.js`
-`app/index.html`
 `app/style.css`
 
-Legacy/support code:
+Support:
 
-`app/legacy.py`
 `app/network_import.py`
+`app/legacy.py`
 
-Third-party upstream code:
-
-`app/credo-data-exporter_universal.py`
-
-## CRITICAL PROVENANCE RULE
+## Critical provenance rule
 
 `app/credo-data-exporter_universal.py` is not project-authored code.
 
-It is a byte-identical copy of:
+It is a byte-identical upstream copy from:
 
 `credo-science/credo-api-tools`
+
+Upstream path:
+
 `data-exporter/credo-data-exporter_universal.py`
 
 Verified Git blob:
@@ -58,73 +58,95 @@ See:
 `THIRD_PARTY_NOTICES.md`
 `LICENSES/MIT-credo-science.txt`
 
-Do not silently reformat, rewrite, or claim authorship of this file.
+Do not silently rewrite, reformat or claim authorship of this file.
 
-If the file changes, update the provenance record.
+If it changes, update its provenance deliberately.
 
-## AI-assisted project code
+## Project-local code
 
-Large portions of the project-local implementation were developed
-iteratively with generative-AI assistance under project-owner direction.
+Project-local implementation was developed iteratively under project
+owner direction, including generative-AI assistance.
 
 AI assistance is not the same as third-party source-code provenance.
 
-Unless `CODE_PROVENANCE.yaml` identifies an external upstream source,
-do not automatically describe project-local code as copied from another
-software project.
+Do not describe project-local code as copied from another project unless
+the provenance record actually identifies such an upstream source.
 
-## Data policy
+## External APIs and scientific data
 
-Do not commit runtime/private data.
+External services, APIs and scientific datasets are integrations or
+data sources.
 
-Never add:
+Do not classify API usage as copied source code unless source code was
+actually incorporated.
+
+## Private/runtime data
+
+Never commit:
 
 `data/`
 `logs/`
 `run/`
 `backups/`
 `venv/`
+`.venv/`
+`.env`
 SQLite databases
 downloaded detection images
-local caches
 credentials
 tokens
 private environment files
+local caches
+
+## Configuration
+
+Public examples belong in:
+
+`.env.example`
+
+Real local configuration belongs in:
+
+`.env`
+
+The default bind address must remain:
+
+`127.0.0.1`
+
+unless wider network exposure is an explicit reviewed change.
 
 ## Compatibility
 
-The audited production environment on 2026-09-22 was:
+Known audited production environment:
 
 macOS 12.7.6
 Intel x86_64
+Python 3.14
 
-Do not claim compatibility with another operating system or Python
-version without testing it.
+GitHub CI currently validates source syntax using:
 
-Some Linux/Raspberry-Pi compatibility code still exists and should be
-treated as portability code or technical debt until explicitly reviewed.
+Python 3.12
+Node.js 22
 
-## Refactoring policy
+Do not claim additional platform compatibility without testing it.
 
-Avoid large behavioural refactors in the same commit as provenance,
-packaging, security, or portability changes.
+## Refactoring
 
-In particular, `app/server.py` contains several very large functions.
+Avoid large behavioural refactors in the same commit as publication,
+provenance, packaging, security or portability changes.
 
-Refactor incrementally with tests.
+Several backend and frontend sections are large.
+
+Refactor incrementally.
 
 ## Performance
 
-Watch for duplicate browser polling.
+Avoid duplicate browser polling.
 
-The main frontend has a periodic refresh and `features.js` contains
-additional timers. Verify network traffic before adding another timer.
-
-Prefer one shared polling source where possible.
+Prefer shared refresh paths when possible.
 
 ## Scientific integrity
 
-Distinguish:
+Distinguish clearly between:
 
 - measured/detected values
 - derived metrics
@@ -133,4 +155,18 @@ Distinguish:
 - external scientific data
 - user annotations
 
-Do not make scientific claims stronger than the underlying data supports.
+Do not make claims stronger than the underlying data supports.
+
+## Required validation
+
+Before committing run:
+
+    ./install.sh --check
+    ./tools/public-preflight.sh
+    git diff --check
+
+If Node.js is available locally also run:
+
+    node --check app/app.js
+    node --check app/features.js
+    node --check app/timelapse.js

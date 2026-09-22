@@ -25,19 +25,9 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Python syntax
+      - name: Install readiness check
         run: |
-          python - <<'PY'
-          from pathlib import Path
-
-          for path in sorted(Path("app").glob("*.py")):
-              compile(
-                  path.read_text(encoding="utf-8"),
-                  str(path),
-                  "exec",
-              )
-              print("PASS:", path)
-          PY
+          ./install.sh --check
 
       - name: JavaScript syntax
         run: |
@@ -47,6 +37,7 @@ jobs:
 
       - name: Shell syntax
         run: |
+          bash -n install.sh
           bash -n start-credo.command
           bash -n stop-credo.command
           bash -n status-credo.command
@@ -60,3 +51,7 @@ jobs:
       - name: Public preflight
         run: |
           ./tools/public-preflight.sh
+
+      - name: Git diff check
+        run: |
+          git diff --check

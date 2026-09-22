@@ -3,6 +3,14 @@ set -Eeuo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+ENV_FILE="${CREDO_ENV_FILE:-$ROOT/.env}"
+
+if [ -f "$ENV_FILE" ]; then
+    set -a
+    . "$ENV_FILE"
+    set +a
+fi
+
 APP="${CREDO_APP_DIR:-$ROOT/app}"
 DATA="${CREDO_DATA_DIR:-$ROOT/data}"
 VENV="${CREDO_VENV_DIR:-$ROOT/venv}"
